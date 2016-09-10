@@ -5,9 +5,55 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\s_cursor</sprite>
+    <sprite>sprites\s_box</sprite>
+    <sprite>sprites\s_solid</sprite>
+    <sprite>sprites\s_ballon</sprite>
+    <sprite>sprites\s_triangle</sprite>
+    <sprite>sprites\s_button</sprite>
+    <sprite>sprites\s_ball</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_text.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\f_cambria</font>
+    <font>fonts\f_debug</font>
+  </fonts>
+  <objects name="objects">
+    <objects name="Test_Physic">
+      <object>objects\o_parent_physic</object>
+      <object>objects\o_spawner_physic</object>
+      <object>objects\o_solid</object>
+      <object>objects\o_ballon</object>
+      <object>objects\o_box</object>
+      <object>objects\o_triangle</object>
+    </objects>
+    <objects name="Test_TextBox">
+      <object>objects\o_spawner</object>
+      <object>objects\o_mouse</object>
+      <object>objects\o_text</object>
+    </objects>
+    <objects name="Test_Ball">
+      <object>objects\o_test_ball</object>
+      <object>objects\o_ball</object>
+    </objects>
+    <objects name="Menu">
+      <object>objects\o_game</object>
+      <object>objects\o_button_go_text_box</object>
+      <object>objects\o_button_go_ball</object>
+      <object>objects\o_button_go_physic</object>
+    </objects>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\r_menu</room>
+    <room>rooms\r_physic</room>
+    <room>rooms\r_test_text_box</room>
+    <room>rooms\r_ball</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
