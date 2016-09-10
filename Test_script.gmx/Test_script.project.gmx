@@ -6,13 +6,19 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\s_cursor</sprite>
-    <sprite>sprites\s_box</sprite>
-    <sprite>sprites\s_solid</sprite>
-    <sprite>sprites\s_ballon</sprite>
-    <sprite>sprites\s_triangle</sprite>
     <sprite>sprites\s_button</sprite>
-    <sprite>sprites\s_ball</sprite>
+    <sprites name="Test_Physic">
+      <sprite>sprites\s_solid</sprite>
+      <sprite>sprites\s_triangle</sprite>
+      <sprite>sprites\s_box</sprite>
+      <sprite>sprites\s_ballon</sprite>
+    </sprites>
+    <sprites name="Test_TextBox">
+      <sprite>sprites\s_cursor</sprite>
+    </sprites>
+    <sprites name="Test_Ball">
+      <sprite>sprites\s_ball</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
