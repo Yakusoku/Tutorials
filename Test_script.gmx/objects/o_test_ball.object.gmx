@@ -59,7 +59,7 @@ instance_create(mouse_x, mouse_y, o_ball);
     with(o_ball) {
         _released = true;
         _direction = point_direction(x, y, mouse_x, mouse_y);
-        _speed = distance_to_point(mouse_x, mouse_y);
+        _speed = distance_to_point(mouse_x, mouse_y) / 5;
    }
 }
 
