@@ -3,7 +3,7 @@
   <spriteName>s_ball</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -53,12 +53,144 @@ _speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (_released == true and _init == false) {
+            <string>/// Released the ball
+if (_released == true and _init == false) {
     _init = true;
     direction = _direction;
     speed = _speed;
     gravity = 0.5;
 }
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Friction
+
+if (abs(speed) &gt; 0) {
+    friction=0.09;
+}
+else {
+    friction=0;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="o_filet">
+      <action>
+        <libid>1</libid>
+        <id>115</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_bounce</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hspeed /= 10;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="o_sol_parent">
+      <action>
+        <libid>1</libid>
+        <id>115</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_bounce</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update speed
+vspeed /= 1.5;
+
+if (abs(vspeed) &lt; 3) {
+    vspeed = 0;
+};
 
 </string>
           </argument>
@@ -84,11 +216,14 @@ _speed = 0;
             <kind>1</kind>
             <string>/// Draw text
 draw_set_font(f_debug);
-draw_text(x, y + 40, "x = " + string(x) + "#" +
+draw_text(100, 100, "x = " + string(x) + "#" +
                      "y = " + string(y) + "#" +
                      "_released = " + string(_released) + "#" +
                      "_direction = " + string(_direction) + "#" +
-                     "_speed = " + string(_speed)
+                     "_speed = " + string(_speed) + "#" +
+                     "speed  = " + string(speed)  + "#" +
+                     "vspeed = " + string(vspeed) + "#" +
+                     "hspeed = " + string(hspeed)
          );
 
 </string>
@@ -112,7 +247,12 @@ draw_text(x, y + 40, "x = " + string(x) + "#" +
           <argument>
             <kind>1</kind>
             <string>/// Draw sprite
-draw_sprite(s_ball, -1, x, y);
+
+if (_released == true and speed != 0) {
+    image_angle -= 5;
+}
+
+draw_sprite_ext(s_ball, -1, x, y, 1, 1, image_angle, c_white, 1);
 
 </string>
           </argument>

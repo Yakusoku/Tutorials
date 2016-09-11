@@ -18,6 +18,10 @@
     </sprites>
     <sprites name="Test_Ball">
       <sprite>sprites\s_ball</sprite>
+      <sprite>sprites\s_filet</sprite>
+      <sprite>sprites\s_sol</sprite>
+      <sprite>sprites\s_sol_left_end</sprite>
+      <sprite>sprites\s_sol_right_end</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -46,6 +50,11 @@
     <objects name="Test_Ball">
       <object>objects\o_test_ball</object>
       <object>objects\o_ball</object>
+      <object>objects\o_sol_parent</object>
+      <object>objects\o_sol</object>
+      <object>objects\o_sol_right_end</object>
+      <object>objects\o_sol_left_end</object>
+      <object>objects\o_filet</object>
     </objects>
     <objects name="Menu">
       <object>objects\o_game</object>
